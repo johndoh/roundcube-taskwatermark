@@ -35,8 +35,7 @@ Configuration
 To set the default value for the `display_first` option add the following to
 your Roundcube config file:
 ```php
-$config['display_first'] = [true/false];
-);
+$config['display_first'] = true;
 ```
 
 Interaction with other plugins
