@@ -1,0 +1,37 @@
+html, body {
+     height: 95%;
+}
+
+body {
+    background: #fff;
+}
+
+body table {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+body table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+div.watermark,
+div.hint {
+    text-align: center;
+}
+
+div.watermark {
+    height: 280px;
+    background-image: url(../../../../skins/larry/images/watermark.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+a {
+    display: block;
+    margin: 0 auto;
+    margin-top: 25px;
+    text-decoration: none;
+}

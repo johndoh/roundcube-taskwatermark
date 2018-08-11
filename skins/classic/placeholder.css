@@ -1,0 +1,39 @@
+html, body {
+     height: 95%;
+}
+
+body {
+    background: #f6f6f6;
+}
+
+body table {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+body table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+div.watermark,
+div.hint {
+    color: #999;
+    text-align: center;
+}
+
+div.watermark {
+    height: 228px;
+    background-image: url(../../../../skins/classic/images/watermark.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+}
+
+a {
+    display: block;
+    margin: 0 auto;
+    margin-top: 25px;
+    color: #999;
+}

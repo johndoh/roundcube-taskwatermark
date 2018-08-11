@@ -1,0 +1,92 @@
+/**
+ * SmartWatermark plugin styles
+ */
+
+@import (reference) "../../../../skins/elastic/styles/variables";
+@import (reference) "../../../../skins/elastic/styles/mixins";
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  > div.hint {
+    color: lighten(@color-black, 60%);
+
+    &:empty {
+        position: relative;
+        width: 35%;
+        height: 35%;
+        background: url(../../../../skins/elastic/images/logo.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, .85);
+        }
+    }
+  }
+
+  > div.watermark {
+    &::before {
+      &:extend(.font-icon-class);
+      font-size: 10em;
+      line-height: 1;
+      color: @color-black-shade-border;
+      margin: 0;
+      margin-bottom: 2rem;
+    }
+
+    &.task-mail.action-list::before {
+      content: @fa-var-envelope;
+    }
+
+    &.task-addressbook.action-list::before {
+      content: @fa-var-users;
+    }
+
+    &.task-settings {
+      &.action-list::before,
+      &.action-preferences::before {
+        content: @fa-var-sliders-h;
+      }
+
+      &.action-folders::before {
+        content: @fa-var-folder;
+      }
+
+      &.action-identities::before {
+        content: @fa-var-id-card;
+      }
+
+      &.action-responses::before {
+        content: @fa-var-comment;
+      }
+
+      &.action-plugin_managesieve::before {
+        content: @fa-var-filter;
+      }
+
+      &.action-plugin_enigmakeys::before {
+        content: @fa-var-key;
+      }
+    }
+  }
+
+  a {
+    margin-top: 2em;
+  }
+}

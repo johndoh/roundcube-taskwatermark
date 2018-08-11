@@ -1,0 +1,31 @@
+{
+  "name": "johndoh/placeholder",
+  "description": "Adds task aware placeholder screens",
+  "keywords": ["placeholder","watermark"],
+  "homepage": "https://github.com/johndoh/roundcube-placeholder/",
+  "license": "GPL-3.0",
+  "type": "roundcube-plugin",
+  "version": "0.1-git",
+  "authors": [
+    {
+      "name": "Philip Weir",
+      "email": "roundcube@tehinterweb.co.uk",
+      "role": "Developer"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://plugins.roundcube.net"
+    }
+  ],
+  "require": {
+    "php": ">=5.2.1",
+    "roundcube/plugin-installer": ">=0.1.2"
+  },
+  "extra": {
+    "roundcube": {
+      "min-version": "1.4"
+    }
+  }
+}
