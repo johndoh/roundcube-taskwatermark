@@ -1,6 +1,6 @@
 {
   "name": "johndoh/placeholder",
-  "description": "Adds task aware placeholder screens",
+  "description": "Replaces the static watermark template used by Roundcube with a task aware page with tips for the user on what to do.",
   "keywords": ["placeholder","watermark"],
   "homepage": "https://github.com/johndoh/roundcube-placeholder/",
   "license": "GPL-3.0",
