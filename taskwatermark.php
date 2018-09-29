@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Placeholder
+ * TaskWatermark
  *
- * Plugin to create task aware placeholder screen
+ * Plugin to create task aware watermark screen
  *
  * @author Philip Weir
  *
@@ -25,7 +25,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Roundcube. If not, see https://www.gnu.org/licenses/.
  */
-class placeholder extends rcube_plugin
+class taskwatermark extends rcube_plugin
 {
     public $task = '^((?!login).)*$';
     private $rcube;
@@ -36,24 +36,24 @@ class placeholder extends rcube_plugin
 
         if ($this->rcube->output->type == 'html') {
             // check template exists
-            $this->template_path = '/' . $this->local_skin_path() . '/templates/placeholder.html';
+            $this->template_path = '/' . $this->local_skin_path() . '/templates/taskwatermark.html';
             $filepath = slashify($this->home) . $this->template_path;
             if (is_file($filepath) && is_readable($filepath)) {
                 // use full URL because of URL comparison in Elastic skin
-                $url = $this->rcube->url(array('_action' => 'plugin.placeholder.show', '_src' => !empty($this->rcube->action) ? $this->rcube->action : 'list'), false, true);
+                $url = $this->rcube->url(array('_action' => 'plugin.taskwatermark.show', '_src' => !empty($this->rcube->action) ? $this->rcube->action : 'list'), false, true);
                 $this->rcube->output->set_env('blankpage', $url);
-                $this->register_action('plugin.placeholder.show', array($this, 'show'));
+                $this->register_action('plugin.taskwatermark.show', array($this, 'show'));
             }
 
             if ($this->rcube->task == 'mail' && $this->rcube->action == '') {
                 $this->rcube->output->set_env('display_first', $this->rcube->config->get('display_first', false));
-                $this->include_script('placeholder.js');
+                $this->include_script('taskwatermark.js');
             }
         }
 
         $this->add_hook('preferences_list', array($this, 'preferences_list'));
         $this->add_hook('preferences_save', array($this, 'preferences_save'));
-        $this->register_action('plugin.placeholder.enable', array($this, 'enable'));
+        $this->register_action('plugin.taskwatermark.enable', array($this, 'enable'));
     }
 
     public function show()
@@ -63,13 +63,13 @@ class placeholder extends rcube_plugin
         $include_path .= ini_get('include_path');
         set_include_path($include_path);
 
-        $output = new rcmail_output_placeholder();
+        $output = new rcmail_output_taskwatermark();
 
         $output->add_handler('plugin.body', array($this, 'body'));
 
         $this->api->output = $output;
-        $this->include_stylesheet($this->local_skin_path() . '/placeholder.css');
-        $output->send('placeholder.placeholder');
+        $this->include_stylesheet($this->local_skin_path() . '/taskwatermark.css');
+        $output->send('taskwatermark.taskwatermark');
     }
 
     public function body($attrib)
@@ -112,7 +112,7 @@ class placeholder extends rcube_plugin
             }
         }
 
-        $data = $this->rcube->plugins->exec_hook('placeholder_show', array('action' => $action, 'hint' => $hint));
+        $data = $this->rcube->plugins->exec_hook('taskwatermark_show', array('action' => $action, 'hint' => $hint));
 
         if (!empty($data['output'])) {
             $out = $data['output'];
@@ -129,7 +129,7 @@ class placeholder extends rcube_plugin
             // Add auto open option for mail view
             $no_override = array_flip((array)$this->rcube->config->get('dont_override'));
             if ($this->rcube->task == 'mail' && $action == 'list' && !$this->rcube->config->get('display_first', false) && !isset($no_override['display_first'])) {
-                $out .= html::a(array('href' => "#", 'onclick' => 'return parent.' . rcmail_output::JS_OBJECT_NAME . '.placeholder_enable();'), rcmail::Q($this->gettext('clickdisplayfirst')));
+                $out .= html::a(array('href' => "#", 'onclick' => 'return parent.' . rcmail_output::JS_OBJECT_NAME . '.taskwatermark_enable();'), rcmail::Q($this->gettext('clickdisplayfirst')));
             }
         }
 

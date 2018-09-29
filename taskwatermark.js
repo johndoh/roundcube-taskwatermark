@@ -1,5 +1,5 @@
 /**
- * Placeholder plugin script
+ * TaskWatermark plugin script
  *
  * @licstart  The following is the entire license notice for the
  * JavaScript code in this file.
@@ -15,9 +15,9 @@
  * for the JavaScript code in this file.
  */
 
-rcube_webmail.prototype.placeholder_enable = function(is_spam) {
+rcube_webmail.prototype.taskwatermark_enable = function(is_spam) {
     var lock = this.set_busy(true, 'loading');
-    this.http_post('plugin.placeholder.enable', {}, lock);
+    this.http_post('plugin.taskwatermark.enable', {}, lock);
 }
 
 $(document).ready(function() {

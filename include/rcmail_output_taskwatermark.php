@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Class to create placeholder HTML page output using a skin template
+ * Class to create taskwatermark HTML page output using a skin template
  *
  */
-class rcmail_output_placeholder extends rcmail_output_html
+class rcmail_output_taskwatermark extends rcmail_output_html
 {
     /**
      * Constructor
