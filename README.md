@@ -3,15 +3,6 @@ Roundcube Webmail TaskWatermark
 This plugin replaces the static watermark template used by the core with a task
 aware page with tips for the user on what to do (eg. Select a message to read).
 
-ATTENTION
----------
-This is just a snapshot from the GIT repository and is **NOT A STABLE version
-of TaskWatermark**. It is Intended for use with the **GIT-master** version of
-Roundcube and it may not be compatible with older versions. Stable versions of
-TaskWatermark are available from the [Roundcube plugin repository][rcplugrepo]
-(for 1.4 and above) or the [releases section][releases] of the GitHub
-repository.
-
 License
 -------
 This plugin is released under the [GNU General Public License Version 3+][gpl].
@@ -50,6 +41,4 @@ the list options menu.
  * hint
  * output
 
-[rcplugrepo]: https://plugins.roundcube.net/packages/johndoh/taskwatermark
-[releases]: https://github.com/johndoh/roundcube-taskwatermark/releases
 [gpl]: https://www.gnu.org/licenses/gpl.html
