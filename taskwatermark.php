@@ -32,7 +32,7 @@ class taskwatermark extends rcube_plugin
 
     public function init()
     {
-       $this->rcube = rcube::get_instance();
+        $this->rcube = rcube::get_instance();
 
         if ($this->rcube->output->type == 'html') {
             // check template exists
@@ -85,10 +85,10 @@ class taskwatermark extends rcube_plugin
         if ($this->rcube->task == 'mail' && $action == 'list') {
             $hint = 'mailtip';
         }
-        else if ($this->rcube->task == 'addressbook' && $action == 'list') {
+        elseif ($this->rcube->task == 'addressbook' && $action == 'list') {
             $hint = 'contacttip';
         }
-        else if ($this->rcube->task == 'settings') {
+        elseif ($this->rcube->task == 'settings') {
             switch ($action) {
                 case 'list':
                 case 'preferences':
@@ -127,7 +127,7 @@ class taskwatermark extends rcube_plugin
             $out .= html::div('hint' . $classes, !empty($data['hint']) ? rcmail::Q($this->gettext($data['hint'])) : '');
 
             // Add auto open option for mail view
-            $no_override = array_flip((array)$this->rcube->config->get('dont_override'));
+            $no_override = array_flip((array) $this->rcube->config->get('dont_override'));
             if ($this->rcube->task == 'mail' && $action == 'list' && !$this->rcube->config->get('display_first', false) && !isset($no_override['display_first'])) {
                 $out .= html::a(array('href' => "#", 'onclick' => 'return parent.' . rcmail_output::JS_OBJECT_NAME . '.taskwatermark_enable();'), rcmail::Q($this->gettext('clickdisplayfirst')));
             }
@@ -146,7 +146,7 @@ class taskwatermark extends rcube_plugin
     public function preferences_list($p)
     {
         if ($p['section'] == 'mailview') {
-            $no_override = array_flip((array)$this->rcube->config->get('dont_override'));
+            $no_override = array_flip((array) $this->rcube->config->get('dont_override'));
 
             if (!isset($no_override['display_first'])) {
                 $this->add_texts('localization/');
