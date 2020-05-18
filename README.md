@@ -50,6 +50,6 @@ the list options menu.
  * hint
  * output
 
-[rcplugrepo]: https://plugins.roundcube.net/packages/johndoh/taskwatermark
+[rcplugrepo]: https://plugins.roundcube.net/#/packages/johndoh/taskwatermark
 [releases]: https://github.com/johndoh/roundcube-taskwatermark/releases
 [gpl]: https://www.gnu.org/licenses/gpl.html
