@@ -90,3 +90,15 @@ body {
     margin-top: 2em;
   }
 }
+
+// dark mode
+& when (@dark-mode-enabled = true) {
+  html.dark-mode {
+    body > div {
+      &.hint,
+      &.watermark::before {
+        color: lighten(@color-black, 30%);
+      }
+    }
+  }
+}
