@@ -40,9 +40,9 @@ class taskwatermark extends rcube_plugin
             $filepath = slashify($this->home) . $this->template_path;
             if (is_file($filepath) && is_readable($filepath)) {
                 // use full URL because of URL comparison in Elastic skin
-                $url = $this->rcube->url(array('_action' => 'plugin.taskwatermark.show', '_src' => !empty($this->rcube->action) ? $this->rcube->action : 'list'), false, true);
+                $url = $this->rcube->url(['_action' => 'plugin.taskwatermark.show', '_src' => !empty($this->rcube->action) ? $this->rcube->action : 'list'], false, true);
                 $this->rcube->output->set_env('blankpage', $url);
-                $this->register_action('plugin.taskwatermark.show', array($this, 'show'));
+                $this->register_action('plugin.taskwatermark.show', [$this, 'show']);
             }
 
             if ($this->rcube->task == 'mail' && $this->rcube->action == '') {
@@ -51,9 +51,9 @@ class taskwatermark extends rcube_plugin
             }
         }
 
-        $this->add_hook('preferences_list', array($this, 'preferences_list'));
-        $this->add_hook('preferences_save', array($this, 'preferences_save'));
-        $this->register_action('plugin.taskwatermark.enable', array($this, 'enable'));
+        $this->add_hook('preferences_list', [$this, 'preferences_list']);
+        $this->add_hook('preferences_save', [$this, 'preferences_save']);
+        $this->register_action('plugin.taskwatermark.enable', [$this, 'enable']);
     }
 
     public function show()
@@ -65,7 +65,7 @@ class taskwatermark extends rcube_plugin
 
         $output = new rcmail_output_taskwatermark();
 
-        $output->add_handler('plugin.body', array($this, 'body'));
+        $output->add_handler('plugin.body', [$this, 'body']);
 
         $this->api->output = $output;
         $this->include_stylesheet($this->local_skin_path() . '/taskwatermark.css');
@@ -112,7 +112,7 @@ class taskwatermark extends rcube_plugin
             }
         }
 
-        $data = $this->rcube->plugins->exec_hook('taskwatermark_show', array('action' => $action, 'hint' => $hint));
+        $data = $this->rcube->plugins->exec_hook('taskwatermark_show', ['action' => $action, 'hint' => $hint]);
 
         if (!empty($data['output'])) {
             $out = $data['output'];
@@ -129,7 +129,7 @@ class taskwatermark extends rcube_plugin
             // Add auto open option for mail view
             $no_override = array_flip((array) $this->rcube->config->get('dont_override'));
             if ($this->rcube->task == 'mail' && $action == 'list' && !$this->rcube->config->get('display_first', false) && !isset($no_override['display_first'])) {
-                $out .= html::a(array('href' => "#", 'onclick' => 'return parent.' . rcmail_output::JS_OBJECT_NAME . '.taskwatermark_enable();'), rcmail::Q($this->gettext('clickdisplayfirst')));
+                $out .= html::a(['href' => "#", 'onclick' => 'return parent.' . rcmail_output::JS_OBJECT_NAME . '.taskwatermark_enable();'], rcmail::Q($this->gettext('clickdisplayfirst')));
             }
         }
 
@@ -138,7 +138,7 @@ class taskwatermark extends rcube_plugin
 
     public function enable()
     {
-        $this->rcube->user->save_prefs(array('display_first' => true));
+        $this->rcube->user->save_prefs(['display_first' => true]);
         $this->rcube->output->set_env('display_first', true);
         $this->rcube->output->command('message_list.select_first');
     }
@@ -152,12 +152,12 @@ class taskwatermark extends rcube_plugin
                 $this->add_texts('localization/');
 
                 $field_id = 'rcmfd_displayfirst';
-                $input = new html_checkbox(array('name' => '_display_first', 'id' => $field_id, 'value' => 1));
+                $input = new html_checkbox(['name' => '_display_first', 'id' => $field_id, 'value' => 1]);
 
-                $p['blocks']['main']['options']['display_first'] = array(
+                $p['blocks']['main']['options']['display_first'] = [
                     'title' => html::label($field_id, rcube::Q($this->gettext('displayfirst'))),
                     'content' => $input->show($this->rcube->config->get('display_first', false)),
-                );
+                ];
 
                 return $p;
             }
