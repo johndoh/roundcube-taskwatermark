@@ -34,7 +34,7 @@ class taskwatermark extends rcube_plugin
     {
         $this->rcube = rcube::get_instance();
 
-        if ($this->rcube->output->type == 'html') {
+        if (is_object($this->rcube->output) && $this->rcube->output->type == 'html') {
             // check template exists
             $this->template_path = '/' . $this->local_skin_path() . '/templates/taskwatermark.html';
             $filepath = slashify($this->home) . $this->template_path;
