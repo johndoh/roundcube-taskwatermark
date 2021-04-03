@@ -59,7 +59,7 @@ class taskwatermark extends rcube_plugin
     public function show()
     {
         // Add include path for internal classes
-        $include_path = $this->home . '/include' . PATH_SEPARATOR;
+        $include_path = $this->home . '/include' . \PATH_SEPARATOR;
         $include_path .= ini_get('include_path');
         set_include_path($include_path);
 
