@@ -3,9 +3,9 @@
   "description": "Replaces the static watermark template used by Roundcube with a task aware page with tips for the user on what to do.",
   "keywords": ["placeholder", "watermark"],
   "homepage": "https://github.com/johndoh/roundcube-taskwatermark/",
-  "license": "GPL-3.0",
+  "license": "GPL-3.0-or-later",
   "type": "roundcube-plugin",
-  "version": "0.2-dev",
+  "version": "0.1.3",
   "authors": [
     {
       "name": "Philip Weir",
@@ -19,7 +19,7 @@
   },
   "extra": {
     "roundcube": {
-      "min-version": "1.5-dev",
+      "min-version": "1.4.4",
       "persistent-files": ["skins/elastic/_custom.less"]
     }
   }

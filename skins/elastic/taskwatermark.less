@@ -99,24 +99,26 @@ body {
 }
 
 // dark mode
-& when (@dark-mode-enabled = true) {
-  html.dark-mode {
-    body > div {
-      &.hint {
-        color: @color-dark-taskwatermark-text;
+& when (isdefined(@dark-mode-enabled)) {
+  & when (@dark-mode-enabled = true) {
+    html.dark-mode {
+      body > div {
+        &.hint {
+          color: @color-dark-taskwatermark-text;
 
-        &:empty {
-          background-color: #21292c;
-          background-blend-mode: soft-light;
+          &:empty {
+            background-color: #21292c;
+            background-blend-mode: soft-light;
 
-          &::before {
-            background-color: transparent;
+            &::before {
+              background-color: transparent;
+            }
           }
         }
-      }
 
-      &.watermark::before {
-        color: @color-dark-taskwatermark-icon;
+        &.watermark::before {
+          color: @color-dark-taskwatermark-icon;
+        }
       }
     }
   }
