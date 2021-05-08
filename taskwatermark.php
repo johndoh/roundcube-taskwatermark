@@ -34,7 +34,7 @@ class taskwatermark extends rcube_plugin
     {
         $this->rcube = rcube::get_instance();
 
-        if ($this->rcube->output->type == 'html') {
+        if (is_object($this->rcube->output) && $this->rcube->output->type == 'html') {
             // check template exists
             $this->template_path = '/' . $this->local_skin_path() . '/templates/taskwatermark.html';
             $filepath = slashify($this->home) . $this->template_path;
@@ -59,7 +59,7 @@ class taskwatermark extends rcube_plugin
     public function show()
     {
         // Add include path for internal classes
-        $include_path = $this->home . '/include' . PATH_SEPARATOR;
+        $include_path = $this->home . '/include' . \PATH_SEPARATOR;
         $include_path .= ini_get('include_path');
         set_include_path($include_path);
 

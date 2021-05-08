@@ -29,6 +29,12 @@ your Roundcube config file:
 $config['display_first'] = true;
 ```
 
+Customizing the Elastic skin
+----------------------------
+The colors and styles used by this plugin can be overridden by adding a
+`_custom.less` file to the `skins/elastic` sub-folder of this plugin and
+then recompiling the CSS.
+
 Interaction with other plugins
 ------------------------------
 The taskwatermark_show hook is triggered when listing the available actions on

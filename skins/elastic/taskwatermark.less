@@ -5,6 +5,11 @@
 @import (reference) "../../../../skins/elastic/styles/variables";
 @import (reference) "../../../../skins/elastic/styles/mixins";
 
+@color-taskwatermark-icon: @color-black-shade-border;
+@color-taskwatermark-text: lighten(@color-black, 60%);
+@color-dark-taskwatermark-icon: lighten(@color-black, 30%);
+@color-dark-taskwatermark-text: lighten(@color-black, 30%);
+
 html, body {
   height: 100%;
   overflow: hidden;
@@ -17,26 +22,28 @@ body {
   justify-content: center;
 
   > div.hint {
-    color: lighten(@color-black, 60%);
+    color: @color-taskwatermark-text;
 
     &:empty {
-        position: relative;
-        width: 35%;
-        height: 35%;
-        background: url(../../../../skins/elastic/images/logo.svg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
+      position: relative;
+      width: 30%;
+      height: 30%;
+      background: url(../../../../skins/elastic/images/logo.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-color: #fff;
+      background-blend-mode: luminosity;
 
-        &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, .85);
-        }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, .85);
+      }
     }
   }
 
@@ -45,7 +52,7 @@ body {
       &:extend(.font-icon-class);
       font-size: 10em;
       line-height: 1;
-      color: @color-black-shade-border;
+      color: @color-taskwatermark-icon;
       margin: 0;
       margin-bottom: 2rem;
     }
@@ -90,3 +97,31 @@ body {
     margin-top: 2em;
   }
 }
+
+// dark mode
+& when (isdefined(@dark-mode-enabled)) {
+  & when (@dark-mode-enabled = true) {
+    html.dark-mode {
+      body > div {
+        &.hint {
+          color: @color-dark-taskwatermark-text;
+
+          &:empty {
+            background-color: #21292c;
+            background-blend-mode: soft-light;
+
+            &::before {
+              background-color: transparent;
+            }
+          }
+        }
+
+        &.watermark::before {
+          color: @color-dark-taskwatermark-icon;
+        }
+      }
+    }
+  }
+}
+
+@import (optional) "_custom";
