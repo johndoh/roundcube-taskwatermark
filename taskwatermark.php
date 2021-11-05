@@ -75,7 +75,7 @@ class taskwatermark extends rcube_plugin
     public function body($attrib)
     {
         // sanitise original action
-        $action = asciiwords(rcube_utils::get_input_value('_src', rcube_utils::INPUT_GPC));
+        $action = asciiwords(rcube_utils::get_input_string('_src', rcube_utils::INPUT_GPC));
         $action = str_replace('.', '_', $action);
 
         $this->add_texts('localization/');

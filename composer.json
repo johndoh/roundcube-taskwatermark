@@ -19,7 +19,7 @@
   },
   "extra": {
     "roundcube": {
-      "min-version": "1.4.4",
+      "min-version": "1.5",
       "persistent-files": ["skins/elastic/_custom.less"]
     }
   }
