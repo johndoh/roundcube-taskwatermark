@@ -27,7 +27,7 @@
  */
 class taskwatermark extends rcube_plugin
 {
-    public $task = '^((?!login).)*$';
+    public $task = '?(?!login$|logout$|cli$).*';
     private $rcube;
 
     public function init()
