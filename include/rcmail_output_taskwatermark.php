@@ -2,7 +2,6 @@
 
 /**
  * Class to create taskwatermark HTML page output using a skin template
- *
  */
 class rcmail_output_taskwatermark extends rcmail_output_html
 {
