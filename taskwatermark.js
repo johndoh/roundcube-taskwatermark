@@ -15,20 +15,20 @@
  * for the JavaScript code in this file.
  */
 
-rcube_webmail.prototype.taskwatermark_enable = function(is_spam) {
+rcube_webmail.prototype.taskwatermark_enable = function () {
     var lock = this.set_busy(true, 'loading');
     this.http_post('plugin.taskwatermark.enable', {}, lock);
-}
+};
 
-$(document).ready(function() {
+$(document).ready(function () {
     if (window.rcmail) {
         var afterlist = false;
 
-        rcmail.addEventListener('afterlist', function() {
+        rcmail.addEventListener('afterlist', function () {
             afterlist = true;
         });
 
-        rcmail.addEventListener('listupdate', function() {
+        rcmail.addEventListener('listupdate', function () {
             if (afterlist && rcmail.env.display_first && $('#' + rcmail.env.contentframe).is(':visible')) {
                 rcmail.message_list.select_first();
                 afterlist = false;

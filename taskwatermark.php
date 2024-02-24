@@ -84,11 +84,9 @@ class taskwatermark extends rcube_plugin
         $hint = '';
         if ($this->rcube->task == 'mail' && $action == 'list') {
             $hint = 'mailtip';
-        }
-        elseif ($this->rcube->task == 'addressbook' && $action == 'list') {
+        } elseif ($this->rcube->task == 'addressbook' && $action == 'list') {
             $hint = 'contacttip';
-        }
-        elseif ($this->rcube->task == 'settings') {
+        } elseif ($this->rcube->task == 'settings') {
             switch ($action) {
                 case 'list':
                 case 'preferences':
@@ -116,8 +114,7 @@ class taskwatermark extends rcube_plugin
 
         if (!empty($data['output'])) {
             $out = $data['output'];
-        }
-        else {
+        } else {
             $classes = '';
             $classes .= ' task-' . (!empty($this->rcube->task) ? $this->rcube->task : 'error');
             $classes .= ' action-' . $action;
@@ -129,7 +126,7 @@ class taskwatermark extends rcube_plugin
             // Add auto open option for mail view
             $no_override = array_flip((array) $this->rcube->config->get('dont_override'));
             if ($this->rcube->task == 'mail' && $action == 'list' && !$this->rcube->config->get('display_first', false) && !isset($no_override['display_first'])) {
-                $out .= html::a(['href' => "#", 'onclick' => 'return parent.' . rcmail_output::JS_OBJECT_NAME . '.taskwatermark_enable();'], rcmail::Q($this->gettext('clickdisplayfirst')));
+                $out .= html::a(['href' => '#', 'onclick' => 'return parent.' . rcmail_output::JS_OBJECT_NAME . '.taskwatermark_enable();'], rcmail::Q($this->gettext('clickdisplayfirst')));
             }
         }
 
