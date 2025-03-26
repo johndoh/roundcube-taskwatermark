@@ -13,7 +13,7 @@ class rcmail_output_taskwatermark extends rcmail_output_html
      */
     public function __construct($task = null, $framed = false)
     {
-        parent::__construct();
+        parent::__construct($task, $framed);
 
         // reset js/css info
         $this->reset(true);

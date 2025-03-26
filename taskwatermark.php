@@ -29,10 +29,11 @@ class taskwatermark extends rcube_plugin
 {
     public $task = '?(?!login$|logout$|cli$).*';
     private $rcube;
+    private $template_path;
 
     public function init()
     {
-        $this->rcube = rcube::get_instance();
+        $this->rcube = rcmail::get_instance();
 
         if (is_object($this->rcube->output) && $this->rcube->output->type == 'html') {
             // check template exists
