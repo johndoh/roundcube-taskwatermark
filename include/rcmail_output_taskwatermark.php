@@ -19,6 +19,7 @@ class rcmail_output_taskwatermark extends rcmail_output_html
         $this->reset(true);
     }
 
+    #[\Override]
     protected function get_js_commands(&$framed = null)
     {
         return '';

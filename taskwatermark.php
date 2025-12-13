@@ -31,6 +31,7 @@ class taskwatermark extends rcube_plugin
     private $rcube;
     private $template_path;
 
+    #[\Override]
     public function init()
     {
         $this->rcube = rcmail::get_instance();
