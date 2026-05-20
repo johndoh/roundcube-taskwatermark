@@ -3,6 +3,7 @@
   "description": "Replaces the static watermark template used by Roundcube with a task aware page with tips for the user on what to do.",
   "license": "GPL-3.0-or-later",
   "type": "roundcube-plugin",
+  "version": "0.3-dev",
   "keywords": [
     "placeholder",
     "watermark"
