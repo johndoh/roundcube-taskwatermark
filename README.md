@@ -23,12 +23,15 @@ folder for details on the skin license.
 
 Install
 -------
+* Install via Composer by adding `johndoh/taskwatermark` to your
+`composer.json` file or running `composer require johndoh/taskwatermark`
+<br/>or
 * Place this plugin folder into plugins directory of Roundcube
-* Add taskwatermark to $config['plugins'] in your Roundcube config
+* Add `taskwatermark` to `$config['plugins']` in your Roundcube config
 
 **NB:** When downloading the plugin from GitHub you will need to create a
-directory called skin and place the files in there, ignoring the root
-directory in the downloaded archive.
+directory called `taskwatermark` and place the files in there, ignoring the
+root directory in the downloaded archive.
 
 Configuration
 -------------
